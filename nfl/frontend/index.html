@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL StatCenter | Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- HERO SECTION (Buscador Central) -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>NFL <span class="highlight">StatCenter</span></h1>
+            <p>Explora el histórico de partidos, rivalidades y análisis basado en nuestra base de datos.</p>
+            
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. CUENTA REGRESIVA Y KICKOFF TEMPORADA 2026 -->
+<section class="countdown-section">
+    <div class="countdown-box">
+        <h2>El Camino a la Temporada 2026</h2>
+        <p class="section-sub">Los motores están listos para la patada inicial.</p>
+        <div class="countdown-container">
+            <div class="countdown-card"><span id="days">00</span><p>Días</p></div>
+            <div class="countdown-card"><span id="hours">00</span><p>Hrs</p></div>
+            <div class="countdown-card"><span id="minutes">00</span><p>Min</p></div>
+            <!-- Nueva tarjeta para los Segundos -->
+            <div class="countdown-card" style="border-color: var(--accent);"><span id="seconds" style="color: var(--accent);">00</span><p>Seg</p></div>
+        </div>
+    </div>
+    
+    <div class="kickoff-matchup">
+        <h3>Partido de Apertura Oficial (Semana 1)</h3>
+        <p class="kickoff-date-text">Septiembre, 2026</p>
+        <div class="matchup-vs">
+            <div class="team">
+                <div class="team-logo-placeholder logo-sea">
+                    <!-- Puedes usar un link directo a una imagen de internet o una ruta local si la tienes en la misma raíz -->
+                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="SEA Logo" style="width: 80%; height: 80%; object-fit: contain;">
+                </div>
+                <span class="team-name-label">Seahawks</span>
+                <small class="team-abbr">SEA</small>
+            </div>
+            <span class="vs">VS</span>
+            <div class="team">
+                <div class="team-logo-placeholder logo-ne">
+                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="NE Logo" style="width: 80%; height: 80%; object-fit: contain;">
+                </div>
+                <span class="team-name-label">Patriots</span>
+                <small class="team-abbr">NE</small>
+            </div>
+        </div>
+        <button class="btn-primary" id="btn-kickoff-h2h">Ver Historial H2H</button>
+    </div>
+</section>
+
+<section class="h2h-section">
+            <h2>Consultor de Rivalidades (Head-to-Head)</h2>
+            <p>Cruza los datos de la tabla 'games' para analizar el historial total entre dos franquicias.</p>
+            <div class="h2h-form">
+                <select id="team-a">
+                    <option value="">Selecciona Equipo A</option>
+                    <option value="ARI">Arizona Cardinals</option>
+                    <option value="ATL">Atlanta Falcons</option>
+                    <option value="BAL">Baltimore Ravens</option>
+                    <option value="BUF">Buffalo Bills</option>
+                    <option value="CAR">Carolina Panthers</option>
+                    <option value="CHI">Chicago Bears</option>
+                    <option value="CIN">Cincinnati Bengals</option>
+                    <option value="CLE">Cleveland Browns</option>
+                    <option value="DAL">Dallas Cowboys</option>
+                    <option value="DEN">Denver Broncos</option>
+                    <option value="DET">Detroit Lions</option>
+                    <option value="GB">Green Bay Packers</option>
+                    <option value="HOU">Houston Texans</option>
+                    <option value="IND">Indianapolis Colts</option>
+                    <option value="JAX">Jacksonville Jaguars</option>
+                    <option value="KC">Kansas City Chiefs</option>
+                    <option value="LV">Las Vegas Raiders</option>
+                    <option value="LAC">Los Angeles Chargers</option>
+                    <option value="LAR">Los Angeles Rams</option>
+                    <option value="MIA">Miami Dolphins</option>
+                    <option value="MIN">Minnesota Vikings</option>
+                    <option value="NE">New England Patriots</option>
+                    <option value="NO">New Orleans Saints</option>
+                    <option value="NYG">New York Giants</option>
+                    <option value="NYJ">New York Jets</option>
+                    <option value="PHI">Philadelphia Eagles</option>
+                    <option value="PIT">Pittsburgh Steelers</option>
+                    <option value="SF">San Francisco 49ers</option>
+                    <option value="SEA">Seattle Seahawks</option>
+                    <option value="TB">Tampa Bay Buccaneers</option>
+                    <option value="TEN">Tennessee Titans</option>
+                    <option value="WAS">Washington Commanders</option>
+                </select>
+                <span class="vs-circle">VS</span>
+                <select id="team-b">
+                    <option value="">Selecciona Equipo B</option>
+                    <option value="ARI">Arizona Cardinals</option>
+                    <option value="ATL">Atlanta Falcons</option>
+                    <option value="BAL">Baltimore Ravens</option>
+                    <option value="BUF">Buffalo Bills</option>
+                    <option value="CAR">Carolina Panthers</option>
+                    <option value="CHI">Chicago Bears</option>
+                    <option value="CIN">Cincinnati Bengals</option>
+                    <option value="CLE">Cleveland Browns</option>
+                    <option value="DAL">Dallas Cowboys</option>
+                    <option value="DEN">Denver Broncos</option>
+                    <option value="DET">Detroit Lions</option>
+                    <option value="GB">Green Bay Packers</option>
+                    <option value="HOU">Houston Texans</option>
+                    <option value="IND">Indianapolis Colts</option>
+                    <option value="JAX">Jacksonville Jaguars</option>
+                    <option value="KC">Kansas City Chiefs</option>
+                    <option value="LV">Las Vegas Raiders</option>
+                    <option value="LAC">Los Angeles Chargers</option>
+                    <option value="LAR">Los Angeles Rams</option>
+                    <option value="MIA">Miami Dolphins</option>
+                    <option value="MIN">Minnesota Vikings</option>
+                    <option value="NE">New England Patriots</option>
+                    <option value="NO">New Orleans Saints</option>
+                    <option value="NYG">New York Giants</option>
+                    <option value="NYJ">New York Jets</option>
+                    <option value="PHI">Philadelphia Eagles</option>
+                    <option value="PIT">Pittsburgh Steelers</option>
+                    <option value="SF">San Francisco 49ers</option>
+                    <option value="SEA">Seattle Seahawks</option>
+                    <option value="TB">Tampa Bay Buccaneers</option>
+                    <option value="TEN">Tennessee Titans</option>
+                    <option value="WAS">Washington Commanders</option>
+                </select>
+                <button id="btn-compare" class="btn-secondary">Comparar Historial</button>
+            </div>
+
+            <div id="h2h-results" class="h2h-results-container" style="display: none; margin-top: 30px;">
+                </div>
+        </section>
+
+        <!-- 2. DATOS DESTACADOS DE LAS TEMPORADAS EN BASE DE DATOS -->
+        <section class="highlights-section">
+            <h2>Hitos Registrados en el Archivo</h2>
+            <div class="grid-highlights">
+                <div class="stat-card champion-card">
+                    <div class="badge">Última Temporada Completa</div>
+                    <h3>Seattle Seahawks</h3>
+                    <p class="stat-desc">Consiguieron coronarse en la temporada 2025, habilitando la revancha directa contra NE en el Kickoff que viene.</p>
+                </div>
+                <div class="stat-card top-games-card">
+                    <h3>Partidos con Mayor Puntuación</h3>
+                    <p class="section-sub">Registros históricos destacados en la base de datos:</p>
+                    <ul class="top-games-list">
+                        <li><span>MIA 70 - 20 DEN</span> <small>Temporada 2023</small></li>
+                        <li><span>LAR 54 - 51 KC</span> <small>Temporada 2018</small></li>
+                        <li><span>SF 34 - 31 DET</span> <small>Postemporada 2023</small></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ARCHIVO POR TEMPORADAS (Ajustado desde 2025 hasta 2015 de tu nfl_db) -->
+        <section class="archive-section">
+            <h2>Explorador Histórico por Temporadas</h2>
+            <p>Selecciona un año para listar sus semanas de juego y desglosar los partidos correspondientes.</p>
+            <div class="season-grid">
+                <!-- Aquí están todos tus años mapeados directamente con tu tabla 'seasons' -->
+                 <a href="/seasons/2026" class="season-btn">Temporada 2026 - En Curso</a>
+                <a href="/seasons/2025" class="season-btn">Temporada 2025</a>
+                <a href="/seasons/2024" class="season-btn">Temporada 2024</a>
+                <a href="/seasons/2023" class="season-btn">Temporada 2023</a>
+                <a href="/seasons/2022" class="season-btn">Temporada 2022</a>
+                <a href="/seasons/2021" class="season-btn">Temporada 2021</a>
+                <a href="/seasons/2020" class="season-btn">Temporada 2020</a>
+                <a href="/seasons/2019" class="season-btn">Temporada 2019</a>
+                <a href="/seasons/2018" class="season-btn">Temporada 2018</a>
+                <a href="/seasons/2017" class="season-btn">Temporada 2017</a>
+                <a href="/seasons/2016" class="season-btn">Temporada 2016</a>
+                <a href="/seasons/2015" class="season-btn">Temporada 2015</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NFL StatCenter - Engine conectado a nfl_db.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

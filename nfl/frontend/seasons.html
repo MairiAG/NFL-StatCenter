@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Temporada NFL</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏈</text></svg>">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="/" style="text-decoration:none;">
+            <h2 style="font-family:'Krona One',sans-serif; font-size:1.1rem; letter-spacing:1px;">
+                NFL <span style="color:var(--accent);">StatCenter</span>
+            </h2>
+        </a>
+        <div class="nav-links">
+            <a href="/">Inicio</a>
+            <a href="#" class="active">Temporadas</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <a href="/" class="btn-back">← Volver al inicio</a>
+
+        <!-- HEADER con selector de año y fase -->
+        <section class="season-header-section">
+            <h1 id="season-title">Temporada NFL 2025</h1>
+            <p class="section-sub">Explora partidos, estadísticas y proyecciones de la temporada.</p>
+
+            <div class="h2h-form" style="margin-top:1.5rem;">
+                <select id="season-selector"></select>
+                <div class="vs-circle" style="font-size:0.7rem;">NFL</div>
+                <select id="phase-selector">
+                    <option value="Regular">Temporada Regular</option>
+                    <option value="WildCard">Ronda de Comodines</option>
+                    <option value="Division">Rondas Divisionales</option>
+                    <option value="ConfChamp">Finales de Conferencia</option>
+                    <option value="SuperBowl">Super Bowl</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- TARJETAS DE RESUMEN -->
+        <section>
+            <h2>Resumen de la Temporada</h2>
+            <p class="section-sub">Métricas generales extraídas de la base de datos.</p>
+
+            <div class="grid-highlights" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem;">
+                
+                <div class="stat-card">
+                    <h3><i class="fas fa-football-ball" style="color:var(--accent); margin-right:6px;"></i>Partidos</h3>
+                    <p id="total-games" style="font-size:2.5rem; font-family:'Krona One',sans-serif; color:var(--neon-blue);">—</p>
+                    <small style="color:var(--text-muted);">jugados en la temporada</small>
+                </div>
+
+                <div class="stat-card">
+                    <h3><i class="fas fa-chart-line" style="color:var(--accent); margin-right:6px;"></i>Prom. Puntos</h3>
+                    <p id="avg-total" style="font-size:2.5rem; font-family:'Krona One',sans-serif; color:var(--neon-green);">—</p>
+                    <small style="color:var(--text-muted);">pts. totales por partido</small>
+                </div>
+
+                <div class="stat-card">
+                    <h3><i class="fas fa-home" style="color:var(--accent); margin-right:6px;"></i>Ventaja Local</h3>
+                    <p id="home-wins-pct" style="font-size:2.5rem; font-family:'Krona One',sans-serif; color:var(--white);">—</p>
+                    <small style="color:var(--text-muted);">% victorias en casa</small>
+                </div>
+
+                <div class="stat-card">
+                    <h3><i class="fas fa-trophy" style="color:#ffd700; margin-right:6px;"></i>Partido Top</h3>
+                    <p id="highest-scoring-game" style="font-size:1rem; font-weight:700; margin-top:0.5rem;">—</p>
+                    <small id="highest-score-pts" style="color:var(--neon-green);">mayor puntaje</small>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TABS DE NAVEGACIÓN -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="semanas">
+                <i class="fas fa-calendar-week"></i> Semanas
+            </button>
+            <button class="tab-btn" data-tab="posiciones">
+                <i class="fas fa-list-ol"></i> Posiciones
+            </button>
+            <button class="tab-btn" data-tab="prediccion">
+                <i class="fas fa-brain"></i> Predictor
+            </button>
+        </div>
+
+        <!-- TAB: SEMANAS + PARTIDOS -->
+        <section id="tab-semanas" class="tab-content active">
+
+            <h2>Semanas</h2>
+            <p class="section-sub">Selecciona una semana para ver los partidos y estadísticas.</p>
+
+            <div id="weeks-nav" class="season-grid" style="margin-bottom:2rem;"></div>
+
+            <h2 id="week-title"></h2>
+
+            <div id="games-container" class="games-list-grid">
+                <div class="loading-text">Elige una semana arriba</div>
+            </div>
+
+        </section>
+
+        <!-- TAB: POSICIONES -->
+        <section id="tab-posiciones" class="tab-content" style="display:none;">
+
+            <h2>Tabla de Posiciones</h2>
+            <p class="section-sub">Rendimiento de todos los equipos en esta temporada.</p>
+
+            <!-- Filtro por conferencia -->
+            <div style="display:flex; gap:0.8rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+                <button class="conf-btn active" data-conf="all">Todos</button>
+                <button class="conf-btn" data-conf="AFC">AFC</button>
+                <button class="conf-btn" data-conf="NFC">NFC</button>
+            </div>
+
+            <div style="overflow-x:auto;">
+                <table id="standings-table" class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Equipo</th>
+                            <th>Div</th>
+                            <th>J</th>
+                            <th>G</th>
+                            <th>P</th>
+                            <th>E</th>
+                            <th>%V</th>
+                            <th>PF</th>
+                            <th>PC</th>
+                            <th>Prom A</th>
+                            <th>Prom R</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-body">
+                        <tr><td colspan="12" class="loading-text">Cargando tabla...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- TAB: PREDICTOR -->
+        <section id="tab-prediccion" class="tab-content" style="display:none;">
+
+            <h2>Predictor de Partido</h2>
+            <p class="section-sub">Proyección estadística basada en los datos históricos registrados en la temporada seleccionada.</p>
+
+            <div class="predictor-card">
+
+                <div id="predictor-manual-form"><div class="predictor-form">
+                    <div class="predictor-team-col">
+                        <label>Equipo Local</label>
+                        <select id="pred-home"></select>
+                        <div id="pred-home-stats" class="pred-mini-stats"></div>
+                    </div>
+
+                    <div style="text-align:center; padding-top:2rem;">
+                        <div class="vs-circle">VS</div>
+                        <button id="btn-predict" class="btn-secondary" style="margin-top:1.5rem; display:block; width:120px; margin-left:auto; margin-right:auto;">
+                            Predecir
+                        </button>
+                    </div>
+
+                    <div class="predictor-team-col">
+                        <label>Equipo Visitante</label>
+                        <select id="pred-away"></select>
+                        <div id="pred-away-stats" class="pred-mini-stats"></div>
+                    </div>
+                </div>
+
+                </div>
+                <div id="prediction-result" style="display:none; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.08);">
+                    <!-- Se llena con JS -->
+                </div>
+
+                <p style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-muted); text-align:center;">
+                    <i class="fas fa-info-circle"></i>
+                    Proyección basada en promedios de puntos anotados/recibidos en la temporada actual. No garantiza resultados reales.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NFL StatCenter — Engine conectado a nfl_db.</p>
+    </footer>
+
+    <script src="/seasons.js"></script>
+</body>
+</html>
