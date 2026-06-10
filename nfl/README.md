@@ -1,77 +1,102 @@
-# 🏈 Página Web NFL
+🏈 NFL StatCenter
 
-Sitio web informativo sobre la **National Football League (NFL)**, desarrollado como proyecto de práctica de desarrollo web front-end.
+Aplicación web para consultar estadísticas, equipos y temporadas de la National Football League (NFL), desarrollada con Node.js, Express y JavaScript.
 
----
 
-## 📋 Descripción
+📋 Descripción
 
-Este proyecto consiste en una página web dedicada a la NFL que presenta información sobre la liga, sus equipos, jugadores destacados y estadísticas de temporada. El objetivo principal es aplicar conocimientos de HTML, CSS y JavaScript en un proyecto real y visualmente atractivo.
+Este proyecto es una aplicación web dedicada a la NFL que permite consultar estadísticas por temporada, información de equipos y resultados de juegos. Los datos abarcan desde la temporada 2015 hasta 2026. El objetivo principal es aplicar conocimientos de desarrollo web con Node.js, Express y manejo de bases de datos.
 
----
 
-## 🚀 Tecnologías Utilizadas
+🚀 Tecnologías Utilizadas
 
-- **HTML5** – Estructura del sitio
-- **CSS3** – Estilos y diseño responsive
-- **JavaScript** – Interactividad y dinamismo
 
----
+HTML5 / CSS3 – Estructura y estilos del sitio
+JavaScript – Interactividad y dinamismo
+Node.js – Entorno de ejecución del servidor
+Express.js – Framework para el servidor y rutas API
+MySQL – Base de datos relacional
+CSV – Archivos de datos por temporada (2015–2026)
 
-## 📁 Estructura del Proyecto
 
-```
-proyecto-nfl/
+
+📁 Estructura del Proyecto
+
+NFL-StatCenter/
 │
-├── index.html          # Página principal
-├── css/
-│   └── styles.css      # Estilos del sitio
-├── js/
-│   └── script.js       # Lógica e interactividad
-├── img/
-│   └── ...             # Imágenes y recursos visuales
-└── README.md           # Documentación del proyecto
-```
+├── nfl/
+│   ├── config/
+│   │   └── db.js                  # Conexión a la base de datos
+│   │
+│   ├── controllers/
+│   │   ├── gamesController.js     # Lógica de juegos
+│   │   ├── seasonsController.js   # Lógica de temporadas
+│   │   ├── statsController.js     # Lógica de estadísticas
+│   │   └── teamsController.js     # Lógica de equipos
+│   │
+│   ├── datos/
+│   │   ├── 2015.csv               # Datos temporada 2015
+│   │   ├── 2016.csv
+│   │   └── ...                    # Hasta 2026.csv
+│   │
+│   ├── frontend/
+│   │   ├── index.html             # Página principal
+│   │   ├── seasons.html           # Página de temporadas
+│   │   ├── script.js              # Lógica del frontend
+│   │   ├── seasons.js
+│   │   └── style.css              # Estilos del sitio
+│   │
+│   ├── routes/
+│   │   ├── gamesRoutes.js         # Rutas de juegos
+│   │   ├── seasonsRoutes.js       # Rutas de temporadas
+│   │   ├── statsRoutes.js         # Rutas de estadísticas
+│   │   └── teamsRoutes.js         # Rutas de equipos
+│   │
+│   ├── importGames.js             # Script para importar datos CSV
+│   ├── nfl_db.sql                 # Estructura de la base de datos
+│   ├── package.json               # Dependencias del proyecto
+│   ├── server.js                  # Servidor principal
+│   ├── .env                       # Variables de entorno
+│   └── README.md
 
----
 
-## 🌐 Contenido del Sitio
+▶️ Cómo ejecutar el proyecto
 
-- **Inicio** – Bienvenida y destacados de la temporada
-- **Equipos** – Información sobre las franquicias de la NFL
-- **Jugadores** – Perfiles de jugadores destacados
-- **Estadísticas** – Datos y cifras de la temporada
-- **Contacto** – Formulario de contacto
 
----
+Clona el repositorio:
 
-## ▶️ Cómo ejecutar el proyecto
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/TU_USUARIO/proyecto-nfl.git
-   ```
+bash   git clone https://github.com/MairiAG/NFL-StatCenter.git
 
-2. Abre la carpeta del proyecto:
-   ```bash
-   cd proyecto-nfl
-   ```
 
-3. Abre el archivo `index.html` en tu navegador.
+Entra a la carpeta del proyecto:
 
-> No requiere instalación de dependencias ni servidor local.
 
----
+bash   cd NFL-StatCenter/nfl
 
-## 👤 Autor
 
-**Tu Nombre**  
-Estudiante de Desarrollo Web  
-📧 tuemail@ejemplo.com  
-🔗 [github.com/TU_USUARIO](https://github.com/TU_USUARIO)
+Instala las dependencias:
 
----
 
-## 📄 Licencia
+bash   npm install
 
+
+Configura el archivo .env con tus credenciales de base de datos.
+Importa la base de datos con nfl_db.sql en MySQL.
+Inicia el servidor:
+
+
+bash   node server.js
+
+
+Abre tu navegador en http://localhost:3000
+
+
+
+👤 Autor
+
+Mairi Aranda 
+Estudiante de Actuaría
+
+🔗 github.com/MairiAG
 Este proyecto fue desarrollado con fines educativos.
