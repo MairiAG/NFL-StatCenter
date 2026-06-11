@@ -6,8 +6,8 @@ Descripción
 
 NFL StatCenter es un sitio web desarrollado con Node.js y Express que permite explorar datos históricos de la NFL desde la temporada 2015 hasta 2026. A través de su interfaz web el usuario puede consultar resultados de juegos, estadísticas por temporada e información de equipos, todo conectado a una base de datos MySQL alimentada con archivos CSV de cada temporada.
 
-
-Tecnologías Utilizadas
+---
+**Tecnologías Utilizadas**
 
 
 -HTML5 / CSS3 – Estructura y estilos del sitio
@@ -23,10 +23,10 @@ Tecnologías Utilizadas
 -CSV – Fuente de datos por temporada (2015–2026)
 
 
+---
 
 
-
-Cómo ejecutar el proyecto
+**Cómo ejecutar el proyecto**
 
 
 -Clona el repositorio y entra a la carpeta nfl
@@ -38,6 +38,10 @@ Cómo ejecutar el proyecto
 -Inicia el servidor con node server.js
 
 -Abre tu navegador en http://localhost:3000
+
+
+---
+
 
 👤 Autor
 
