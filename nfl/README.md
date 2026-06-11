@@ -24,6 +24,8 @@ Tecnologías Utilizadas
 
 
 
+
+
 Cómo ejecutar el proyecto
 
 
@@ -40,5 +42,7 @@ Cómo ejecutar el proyecto
 👤 Autor
 
 Mairi Aranda 
+
 Estudiante de Actuaría
+
 🔗 github.com/MairiAG
