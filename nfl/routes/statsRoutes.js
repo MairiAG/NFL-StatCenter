@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// Funciones que pusiste en el controlador
 const {
     getBettingStandings,
     getHomeVsAwayStats,
